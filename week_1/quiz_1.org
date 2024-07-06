@@ -1,0 +1,313 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Week 1 Quiz
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+LATEX_HEADER: \newcommand{\pv}{\mathrm{PV}}
+#+LATEX_HEADER: \newcommand{\fv}{\mathrm{FV}}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* Opportunity Costs, Inflation, Risk
+
+* Problem 2
+
+*Answer:* $1,500 at the end of 4 years\\
+
+To answer this question, we need to know the present value of $1,500. This value
+can be computed with the aid of the formula
+\begin{equation}
+\pv=\frac{\fv}{(1+r)^t},
+\end{equation}
+where \( \fv \) denotes the future value, \( r \) denotes the interest rate, and
+\( t \) is the number of time periods. In this case, we have
+\begin{align}
+  \begin{split}
+    \fv&=1500,\\
+    r&=0.1,\\
+    t&=4.
+  \end{split}
+\end{align}
+By substituting these values into the equation for \( \pv \), we get
+
+#+NAME: problem_2
+#+BEGIN_SRC python :results output :exports none
+pv = round(1500 / (1 + 0.1)**4, 2)
+print(pv)
+#+END_SRC
+
+#+RESULTS: problem_2
+: 1024.52
+
+\begin{equation}
+\pv=\frac{1500}{(1+0.1)^4}\approx 1024.52.
+\end{equation}
+This result clearly shows that it's better to receive the prize at the end of 4
+years.
+
+* Problem 3
+
+*Answer:* $18,476.91\\
+
+In this case, we have the following:
+- the future value is $20,000;
+- the interest rate is \( r=0.02 \);
+- the number of time periods is \( t=4 \).
+Moreover, the amount needed today is the present value corresponding to $20,000.
+\( \pv \) can be calculated as follows:
+
+#+NAME: problem_3
+#+BEGIN_SRC python :results output :exports none
+pv = round(20000 / (1 + 0.02)**4, 2)
+print(pv)
+#+END_SRC
+
+#+RESULTS: problem_3
+: 18476.91
+
+\begin{align}
+  \begin{split}
+    \pv&=\frac{\fv}{(1+r)^t}\\
+    &=\frac{20000}{(1+0.02)^4}\\
+    &\approx 18476.91.
+  \end{split}
+\end{align}
+
+* Problem 4
+
+*Answer:* \( \pv \) goes up\\
+
+We assume the future value and the interest rate are the same in both cases.
+Then in the first case the present value is given by
+\begin{equation}
+\pv_1=\frac{\fv}{(1+r)^5}.
+\end{equation}
+If the number of periods changes from 5 to 4, the new present value is
+\begin{equation}
+\pv_2=\frac{\fv}{(1+r)^4}.
+\end{equation}
+To answer this question, we compute the ratio \( \frac{\pv_2}{\pv_1} \):
+\begin{align}
+  \begin{split}
+    \frac{\pv_2}{\pv_1}&=\frac{\fv}{(1+r)^4}\frac{(1+r)^5}{\fv}\\
+    &=\frac{(1+r)(1+r)^4}{(1+r)^4}\\
+    &=1+r.
+  \end{split}
+\end{align}
+The interest rate is a positive number. Then the above ratio is greater than 1.
+Therefore, the new present value \( \pv_2 \) is larger than the old one,
+\( \pv_1 \).
+
+* Problem 5
+
+*Answer:* $1,628.90\\
+
+In this case, we have the following:
+- the present value is $1,000;
+- the interest rate is \( r=0.05 \);
+- the number of time periods is \( t=10 \).
+Moreover, the account balance represents the future value corresponding to
+$1,000. The future value can be determined with the aid of the formula
+\begin{equation}
+\fv=\pv(1+r)^t.
+\end{equation}
+By substituting the values of \( \pv \), \( r \) and \( t \) into the above
+equation, we get
+
+#+NAME: problem_5
+#+BEGIN_SRC python :results output :exports none
+fv = round(1000 * (1 + 0.05)**10, 2)
+print(fv)
+#+END_SRC
+
+#+RESULTS: problem_5
+: 1628.89
+
+\begin{equation}
+\fv=1000(1+0.05)^{10}\approx 1628.90.
+\end{equation}
+
+* Problem 6
+
+*Answer:* $1,638.62\\
+
+In this case, we have the following:
+- the present value is still $1,000;
+- the interest rate is half of what we had in the previous problem, i.e.,
+  \( r=\frac{0.05}{2}=0.025 \);
+- the number of time periods is double what we had in the previous problem,
+  i.e., \( t=2\cdot 10=20 \).
+Once again, we compute the account balance with the aid of the formula for the
+future value:
+\begin{equation}
+\fv=\pv(1+r)^t.
+\end{equation}
+By substituting the values of \( \pv \), \( r \) and \( t \) into the above
+equation, we get
+
+#+NAME: problem_6
+#+BEGIN_SRC python :results output :exports none
+fv = round(1000 * (1 + 0.025)**20, 2)
+print(fv)
+#+END_SRC
+
+#+RESULTS: problem_6
+: 1638.62
+
+\begin{equation}
+\fv=1000(1+0.025)^{20}\approx 1638.62.
+\end{equation}
+
+* Problem 7
+
+*Answer:* $6,549.56\\
+
+The value we want has two components. First, there's the present value
+corresponding to the face value of $6,000. We denote this amount by \( \pv_1 \).
+Then there's the present value corresponding to all the annual payments of $300.
+This amount is denoted by \( \pv_2 \). Hence:
+\begin{equation}
+\pv=\pv_1+\pv_2.
+\end{equation}
+We perform the simplest calculation first. Since the discount rate is \( r=0.03 \)
+and the number of periods is \( t=5 \), the PV related to the face value can be
+computed as follows:
+
+#+NAME: problem_7_pv1
+#+BEGIN_SRC python :results output :exports none :session
+pv_1 = 6000 / (1 + 0.03)**5
+print(round(pv_1, 2))
+#+END_SRC
+
+#+RESULTS: problem_7_pv1
+: 5175.65
+
+\begin{equation}
+\pv_1=\frac{6000}{(1+0.03)^5}\approx 5175.65.
+\end{equation}
+Next, consider the value of \( \pv_2 \). There will be 5 annual payments of
+$300. Then we can express \( \pv_2 \) as
+
+#+NAME: problem_7_pv2
+#+BEGIN_SRC python :results output :exports none :session
+pv_2 = 300 * sum(1.03**(-t) for t in range(1, 6))
+print(round(pv_2, 2))
+#+END_SRC
+
+#+RESULTS: problem_7_pv2
+: 1373.91
+
+\begin{equation}
+\pv_2=\sum_{t=1}^5\frac{300}{(1+0.03)^t}=300\sum_{t=1}^5\frac{1}{1.03^t}\approx 1373.91.
+\end{equation}
+To get the desired result, all we need to do now is to sum \( \pv_1 \) and
+\( \pv_2 \). The present value of the bond is
+
+#+NAME: problem_7_pv
+#+BEGIN_SRC python :results output :exports none :session
+pv = pv_1 + pv_2
+print(round(pv, 2))
+#+END_SRC
+
+#+RESULTS: problem_7_pv
+: 6549.56
+
+\begin{equation}
+\pv\approx 5175.65+1373.91\approx 6549.56.
+\end{equation}
+
+* Problem 8
+
+*Answer:* $21.98\\
+
+In this problem, we have the following:
+- the earnings per share of company A is \( E_A=1.57 \);
+- the P/E ratio for company B is \( \mathrm{PE}_B=14 \).
+The value of a share of stock in company A is denoted by \( P_A \). This value
+can be computed as follows:
+
+#+NAME: problem_8
+#+BEGIN_SRC python :results output :exports none
+pe_b = 14
+e_a = 1.57
+print(round(pe_b * e_a, 2))
+#+END_SRC
+
+#+RESULTS: problem_8
+: 21.98
+
+\begin{equation}
+P_A=\mathrm{PE}_B\cdot E_A\approx 21.98.
+\end{equation}
+
+* Problem 9
+
+*Answer:* $913.22\\
+
+The approach to solving this problem is the same we considered in Problem 7. So
+we won't explain this approach again. We'll simply write down the final result.
+To obtain this result, a Python function was implemented. The corresponding code
+is presented below.
+#+NAME: bond_value
+#+BEGIN_SRC python :exports code :session
+def bond_value(face_value: float, coupon: float, discount_rate: float, maturity: int) -> float:
+    pv_1 = face_value / (1 + discount_rate) ** maturity
+    pv_2 = coupon * sum((1 + discount_rate) ** (-t) for t in range(1, maturity + 1))
+    pv = pv_1 + pv_2
+    return pv
+#+END_SRC
+To get the answer to this question, it's just a matter of calling the above
+function with the right parameters:
+#+NAME: problem_9
+#+BEGIN_SRC python :results output :exports both :session
+face_value = 1000
+coupon = 50
+discount_rate = 0.1
+maturity = 2
+ans_9 = bond_value(face_value, coupon, discount_rate, maturity)
+print(round(ans_9, 2))
+#+END_SRC
+#+RESULTS: problem_9
+: 913.22
+
+* Problem 10
+
+*Answer:* $1,038.27\\
+
+To answer this question, we change the value of the discount rate, and then call
+our function:
+#+NAME: problem_10
+#+BEGIN_SRC python :results output :exports both :session
+discount_rate = 0.03
+ans_10 = bond_value(face_value, coupon, discount_rate, maturity)
+print(round(ans_10, 2))
+#+END_SRC
+#+RESULTS: problem_10
+: 1038.27
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# org-babel-inline-result-wrap: "%s"
+# End:

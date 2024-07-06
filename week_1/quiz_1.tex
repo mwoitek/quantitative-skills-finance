@@ -1,0 +1,257 @@
+% Created 2024-07-05 Fri 22:22
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\newcommand{\pv}{\mathrm{PV}}
+\newcommand{\fv}{\mathrm{FV}}
+\date{}
+\title{Week 1 Quiz}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Week 1 Quiz},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:orgcb0cc4d}
+
+\textbf{Answer:} Opportunity Costs, Inflation, Risk
+\section*{Problem 2}
+\label{sec:org90feb7b}
+
+\textbf{Answer:} \$1,500 at the end of 4 years\\
+
+To answer this question, we need to know the present value of \$1,500. This value
+can be computed with the aid of the formula
+\begin{equation}
+\pv=\frac{\fv}{(1+r)^t},
+\end{equation}
+where \(\fv\) denotes the future value, \(r\) denotes the interest rate, and
+\(t\) is the number of time periods. In this case, we have
+\begin{align}
+  \begin{split}
+    \fv&=1500,\\
+    r&=0.1,\\
+    t&=4.
+  \end{split}
+\end{align}
+By substituting these values into the equation for \(\pv\), we get
+
+\begin{equation}
+\pv=\frac{1500}{(1+0.1)^4}\approx 1024.52.
+\end{equation}
+This result clearly shows that it's better to receive the prize at the end of 4
+years.
+\section*{Problem 3}
+\label{sec:org673d4a4}
+
+\textbf{Answer:} \$18,476.91\\
+
+In this case, we have the following:
+\begin{itemize}
+\item the future value is \$20,000;
+\item the interest rate is \(r=0.02\);
+\item the number of time periods is \(t=4\).
+\end{itemize}
+Moreover, the amount needed today is the present value corresponding to \$20,000.
+\(\pv\) can be calculated as follows:
+
+\begin{align}
+  \begin{split}
+    \pv&=\frac{\fv}{(1+r)^t}\\
+    &=\frac{20000}{(1+0.02)^4}\\
+    &\approx 18476.91.
+  \end{split}
+\end{align}
+\section*{Problem 4}
+\label{sec:orgf695a08}
+
+\textbf{Answer:} \(\pv\) goes up\\
+
+We assume the future value and the interest rate are the same in both cases.
+Then in the first case the present value is given by
+\begin{equation}
+\pv_1=\frac{\fv}{(1+r)^5}.
+\end{equation}
+If the number of periods changes from 5 to 4, the new present value is
+\begin{equation}
+\pv_2=\frac{\fv}{(1+r)^4}.
+\end{equation}
+To answer this question, we compute the ratio \(\frac{\pv_2}{\pv_1}\):
+\begin{align}
+  \begin{split}
+    \frac{\pv_2}{\pv_1}&=\frac{\fv}{(1+r)^4}\frac{(1+r)^5}{\fv}\\
+    &=\frac{(1+r)(1+r)^4}{(1+r)^4}\\
+    &=1+r.
+  \end{split}
+\end{align}
+The interest rate is a positive number. Then the above ratio is greater than 1.
+Therefore, the new present value \(\pv_2\) is larger than the old one,
+\(\pv_1\).
+\section*{Problem 5}
+\label{sec:org5525fa5}
+
+\textbf{Answer:} \$1,628.90\\
+
+In this case, we have the following:
+\begin{itemize}
+\item the present value is \$1,000;
+\item the interest rate is \(r=0.05\);
+\item the number of time periods is \(t=10\).
+\end{itemize}
+Moreover, the account balance represents the future value corresponding to
+\$1,000. The future value can be determined with the aid of the formula
+\begin{equation}
+\fv=\pv(1+r)^t.
+\end{equation}
+By substituting the values of \(\pv\), \(r\) and \(t\) into the above
+equation, we get
+
+\begin{equation}
+\fv=1000(1+0.05)^{10}\approx 1628.90.
+\end{equation}
+\section*{Problem 6}
+\label{sec:org281acae}
+
+\textbf{Answer:} \$1,638.62\\
+
+In this case, we have the following:
+\begin{itemize}
+\item the present value is still \$1,000;
+\item the interest rate is half of what we had in the previous problem, i.e.,
+\(r=\frac{0.05}{2}=0.025\);
+\item the number of time periods is double what we had in the previous problem,
+i.e., \(t=2\cdot 10=20\).
+\end{itemize}
+Once again, we compute the account balance with the aid of the formula for the
+future value:
+\begin{equation}
+\fv=\pv(1+r)^t.
+\end{equation}
+By substituting the values of \(\pv\), \(r\) and \(t\) into the above
+equation, we get
+
+\begin{equation}
+\fv=1000(1+0.025)^{20}\approx 1638.62.
+\end{equation}
+\section*{Problem 7}
+\label{sec:orge0c7860}
+
+\textbf{Answer:} \$6,549.56\\
+
+The value we want has two components. First, there's the present value
+corresponding to the face value of \$6,000. We denote this amount by \(\pv_1\).
+Then there's the present value corresponding to all the annual payments of \$300.
+This amount is denoted by \(\pv_2\). Hence:
+\begin{equation}
+\pv=\pv_1+\pv_2.
+\end{equation}
+We perform the simplest calculation first. Since the discount rate is \(r=0.03\)
+and the number of periods is \(t=5\), the PV related to the face value can be
+computed as follows:
+
+\begin{equation}
+\pv_1=\frac{6000}{(1+0.03)^5}\approx 5175.65.
+\end{equation}
+Next, consider the value of \(\pv_2\). There will be 5 annual payments of
+\$300. Then we can express \(\pv_2\) as
+
+\begin{equation}
+\pv_2=\sum_{t=1}^5\frac{300}{(1+0.03)^t}=300\sum_{t=1}^5\frac{1}{1.03^t}\approx 1373.91.
+\end{equation}
+To get the desired result, all we need to do now is to sum \(\pv_1\) and
+\(\pv_2\). The present value of the bond is
+
+\begin{equation}
+\pv\approx 5175.65+1373.91\approx 6549.56.
+\end{equation}
+\section*{Problem 8}
+\label{sec:orge97df85}
+
+\textbf{Answer:} \$21.98\\
+
+In this problem, we have the following:
+\begin{itemize}
+\item the earnings per share of company A is \(E_A=1.57\);
+\item the P/E ratio for company B is \(\mathrm{PE}_B=14\).
+\end{itemize}
+The value of a share of stock in company A is denoted by \(P_A\). This value
+can be computed as follows:
+
+\begin{equation}
+P_A=\mathrm{PE}_B\cdot E_A\approx 21.98.
+\end{equation}
+\section*{Problem 9}
+\label{sec:org663b005}
+
+\textbf{Answer:} \$913.22\\
+
+The approach to solving this problem is the same we considered in Problem 7. So
+we won't explain this approach again. We'll simply write down the final result.
+To obtain this result, a Python function was implemented. The corresponding code
+is presented below.
+\begin{verbatim}
+def bond_value(face_value: float, coupon: float, discount_rate: float, maturity: int) -> float:
+    pv_1 = face_value / (1 + discount_rate) ** maturity
+    pv_2 = coupon * sum((1 + discount_rate) ** (-t) for t in range(1, maturity + 1))
+    pv = pv_1 + pv_2
+    return pv
+\end{verbatim}
+To get the answer to this question, it's just a matter of calling the above
+function with the right parameters:
+\begin{verbatim}
+face_value = 1000
+coupon = 50
+discount_rate = 0.1
+maturity = 2
+ans_9 = bond_value(face_value, coupon, discount_rate, maturity)
+print(round(ans_9, 2))
+\end{verbatim}
+\phantomsection
+\label{problem_9}
+\begin{verbatim}
+913.22
+\end{verbatim}
+\section*{Problem 10}
+\label{sec:orge6b70f3}
+
+\textbf{Answer:} \$1,038.27\\
+
+To answer this question, we change the value of the discount rate, and then call
+our function:
+\begin{verbatim}
+discount_rate = 0.03
+ans_10 = bond_value(face_value, coupon, discount_rate, maturity)
+print(round(ans_10, 2))
+\end{verbatim}
+\phantomsection
+\label{problem_10}
+\begin{verbatim}
+1038.27
+\end{verbatim}
+\end{document}
