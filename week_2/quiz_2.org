@@ -1,0 +1,229 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Week 2 Quiz
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* Project B\\
+
+We begin by summarizing the relevant information in the problem statement. For
+project A, we have the following:
+- the value of the initial investment is $1,000;
+- the value of the annual income is $500.
+The data related to project B is the following:
+- the value of the initial investment is $2,000;
+- the value of the annual income is $900.
+In both cases, the discount rate is \( r=0.05 \), and the number of time periods
+is \( t=3 \) years.\\
+First, we compute the NPV for project A. In this case, the NPV can be expressed as
+#+NAME: npv
+#+BEGIN_SRC python :results none :exports none :session
+from typing import cast
+
+
+def npv(
+    initial_investment: float,
+    cash_flow: float | list[float],
+    discount_rate: float,
+    time_periods: int,
+) -> float:
+    if not isinstance(cash_flow, list):
+        cash_flow = [float(cash_flow)] * time_periods
+    cash_flow = cast(list, cash_flow)
+    pv_cash_flow = sum(f / (1 + discount_rate) ** t for f, t in zip(cash_flow, range(1, time_periods + 1)))
+    return pv_cash_flow - initial_investment
+#+END_SRC
+#+NAME: problem_1_project_a
+#+BEGIN_SRC python :results output :exports none :session
+discount_rate = 0.05
+time_periods = 3
+
+initial_investment = 1000
+cash_flow = 500
+
+ans_1a = npv(initial_investment, cash_flow, discount_rate, time_periods)
+print(round(ans_1a, 2))
+#+END_SRC
+#+RESULTS: problem_1_project_a
+: 361.62
+\begin{equation}
+\mathrm{NPV}_A=-1000+\sum_{t=1}^3\frac{500}{(1+0.05)^t}=-1000+500\sum_{t=1}^3\frac{1}{1.05^t}\approx 361.62.
+\end{equation}
+Therefore, the net present value for project A is $361.62. Next, consider the
+NPV for project B. This amount can be computed as follows:
+#+NAME: problem_1_project_b
+#+BEGIN_SRC python :results output :exports none :session
+initial_investment = 2000
+cash_flow = 900
+
+ans_1b = npv(initial_investment, cash_flow, discount_rate, time_periods)
+print(round(ans_1b, 2))
+#+END_SRC
+#+RESULTS: problem_1_project_b
+: 450.92
+\begin{equation}
+\mathrm{NPV}_B=-2000+\sum_{t=1}^3\frac{900}{(1+0.05)^t}=-2000+900\sum_{t=1}^3\frac{1}{1.05^t}\approx 450.92.
+\end{equation}
+Since this amount is greater than \( \mathrm{NPV}_A \), it's better to select
+project B.
+
+* Problem 2
+
+*Answer:* Project A\\
+
+First, consider project A. In this case, it's clear that we get the initial
+investment back in two years. On the other hand, for project B, in the same
+period we would get back only $1,800, which is less than the initial investment.
+Then the payback period of B is greater than 2 years. Therefore, based on
+payback period, we should select project A.
+
+* Problem 3
+
+*Answer:* NPV decreases\\
+
+If the initial investment increases, then we subtract a larger number from the
+present value of the cash flows. Assuming this PV doesn't change, we get a
+smaller difference as a result. Therefore, the NPV decreases.
+
+* Problem 4
+
+*Answer:* NPV decreases
+
+* Problem 5
+
+*Answer:* IRR decreases\\
+
+To answer this question, we're going to compute the IRR in both cases. In the
+first case, the NPV can be written as follows:
+\begin{equation}
+\mathrm{NPV}_1=-1000+\frac{50}{(1+r_1)^1}+\frac{50}{(1+r_1)^2}+\frac{1000}{(1+r_1)^2},
+\end{equation}
+where \( r_1 \) denotes the discount rate in case 1. By definition, this
+quantity becomes the IRR when \( \mathrm{NPV}_1=0 \). By imposing this
+condition, we get
+\begin{equation}
+\frac{50}{1+\mathrm{IRR}_1}+\frac{1050}{(1+\mathrm{IRR}_1)^2}=1000.
+\end{equation}
+To actually compute \( \mathrm{IRR}_1 \), first we need to re-write this
+equation:
+\begin{align}
+  \begin{split}
+    \frac{50}{1+\mathrm{IRR}_1}+\frac{1050}{(1+\mathrm{IRR}_1)^2}&=1000\\
+    \frac{1}{1+\mathrm{IRR}_1}+\frac{21}{(1+\mathrm{IRR}_1)^2}&=20\\
+    (1+\mathrm{IRR}_1)^2\left[\frac{1}{1+\mathrm{IRR}_1}+\frac{21}{(1+\mathrm{IRR}_1)^2}\right]&=20(1+\mathrm{IRR}_1)^2\\
+    1+\mathrm{IRR}_1+21&=20(1+\mathrm{IRR}_1)^2\\
+    \mathrm{IRR}_1+22&=20(1+2\mathrm{IRR}_1+\mathrm{IRR}_1^2)\\
+    \mathrm{IRR}_1+22&=20+40\mathrm{IRR}_1+20\mathrm{IRR}_1^2\\
+    20\mathrm{IRR}_1^2+39\mathrm{IRR}_1-2&=0
+  \end{split}
+\end{align}
+The above equation can be solved easily with the aid of the quadratic formula.
+One can show that this equation has two solutions: \( \mathrm{IRR}_1=-2 \) and
+\( \mathrm{IRR}_1=\frac{1}{20} \). A discount rate is a strictly positive
+number. Then the negative root isn't a valid solution. This allows us to
+conclude that
+\begin{equation}
+\mathrm{IRR}_1=\frac{1}{20}=0.05.
+\end{equation}
+In other words, in the first case, the internal rate of return is 5%.\\
+To obtain the IRR in the second case, we can follow a similar procedure. For
+this reason, we won't present a detailed explanation. Instead, we'll simply
+write down the important results. It's straightforward to show that
+\( \mathrm{IRR}_2 \) satisfies the following quadratic equation:
+#+NAME: irr_equation
+#+BEGIN_SRC python :results none :exports none :session
+from sympy import Eq, Float, Pow, Symbol, latex, simplify
+from sympy.sets.sets import Set
+from sympy.solvers.solveset import solveset_real
+
+
+def irr_equation(initial_investment: int | float, cash_flow: list[int] | list[float]) -> tuple[Eq, Set]:
+    irr = Symbol("IRR")
+    npv = Float(-initial_investment)
+    for t, f in enumerate(cash_flow, start=1):
+        npv += Float(f) / Pow(Float(1) + irr, t)
+    lhs = npv * Pow(Float(1) + irr, len(cash_flow))
+    equation = simplify(Eq(lhs, 0))
+    solutions = solveset_real(equation, irr)
+    return equation, solutions
+#+END_SRC
+#+NAME: problem_5_irr_2
+#+BEGIN_SRC python :results output :exports none :session
+initial_investment = 1000
+cash_flow = [40, 1040]
+eq_2, sol_2 = irr_equation(initial_investment, cash_flow)
+print(latex(eq_2))
+print(sol_2)
+#+END_SRC
+#+RESULTS: problem_5_irr_2
+: 1000.0 IRR^{2} + 1960.0 IRR = 80.0
+: {-2.0, 0.04}
+\begin{equation}
+25\mathrm{IRR}_2^{2}+49\mathrm{IRR}_2-2=0.
+\end{equation}
+With the aid of the quadratic formula, it's simple to prove that the solutions
+to the above equation are \( -2 \) and \( 0.04 \). Once again, we discard the
+negative root. Then we have \( \mathrm{IRR}_2=0.04 \). This clearly shows that
+the IRR decreases.
+
+* Problem 6
+
+*Answer:* IRR decreases\\
+
+The initial situation is the same as in the previous problem. If we increase the
+investment to $1,050, the IRR is the positive solution to the following
+equation:
+#+NAME: problem_6
+#+BEGIN_SRC python :results output :exports none :session
+initial_investment = 1050
+cash_flow = [50, 1050]
+eq_3, sol_3 = irr_equation(initial_investment, cash_flow)
+print(latex(eq_3))
+print(sol_3)
+#+END_SRC
+#+RESULTS: problem_6
+: 1050.0 IRR^{2} + 2050.0 IRR = 50.0
+: {-1.97647388274286, 0.024092930361905}
+\begin{equation}
+21\mathrm{IRR}_3^{2}+41\mathrm{IRR}_3-1=0.
+\end{equation}
+Once again, it's possible to show that this equation has two real roots, one
+negative and the other positive. This positive root is given approximately by
+\( \mathrm{IRR}_3\approx 0.024 \). This value is close to half the original one.
+Therefore, as in the previous problem, the IRR decreases.
+
+* Problem 7
+
+*Answer:* ROI doubles\\
+
+It's very clear that the return doubles when the annual incomes double. As a
+consequence, the ROI also doubles.
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# org-babel-inline-result-wrap: "%s"
+# End:
