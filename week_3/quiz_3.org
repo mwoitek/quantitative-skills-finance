@@ -1,0 +1,233 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Week 3 Quiz
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* A decrease in cash\\
+
+Working capital (WC) is the difference between current assets (CA) and current
+liabilities (CL). Then what would produce an increase in WC?
+1. There's an increase in current assets, and/or
+2. there's a decrease in current liabilities.
+Recall that an increase in CA represents a cash drain. The same is true for a
+decrease in CL. Therefore, an increase in net working capital means *a decrease
+in cash*.
+
+* Problem 2
+
+*Answer:* $140 million\\
+
+To compute the free cash flow (FCF), we need to take the operating profit, and
+then
+- subtract the increase in working capital;
+- add the depreciation back;
+- subtract the capital expenditure; and
+- add the after-tax salvage value.
+In this problem, we have the following:
+- operating profit: $100 million;
+- no change in working capital;
+- no depreciation;
+- capital expenditure: $10 million;
+- salvage value: $50 million.
+Then, in units of $1 million, we can write the FCF as
+\begin{equation}
+\mathrm{FCF}=100-0+0-10+50=140.
+\end{equation}
+Therefore, the company's free cash flow for the year is $140 million.
+
+* Problem 3
+
+*Answer:* $466,666.67\\
+
+We're going to denote the annual depreciation amount by \( d \). By using this
+variable, we can express the depreciated value of the investment for every year:
+- Year 0: \( 1,400,000 \);
+- Year 1: \( 1,400,000-d \);
+- Year 2: \( 1,400,000-2d \);
+- Year 3: \( 1,400,000-3d=0 \).
+To obtain the value of \( d \), we solve the above equation:
+#+NAME: problem_3
+#+BEGIN_SRC python :results output :exports none
+print(round(1400000 / 3, 2))
+#+END_SRC
+#+RESULTS: problem_3
+: 466666.67
+\begin{align}
+  \begin{split}
+    1,400,000-3d&=0\\
+    3d&=1,400,000\\
+    d&=\frac{1,400,000}{3}\\
+    d&\approx 466,666.67
+  \end{split}
+\end{align}
+Therefore, the annual depreciation amount is approximately $466,666.67.
+
+* Problem 4
+
+*Answer:* $224,000\\
+
+This subject is not explained in the lectures. But it seems that the right thing
+to do is to compute the profit from sales, and then use the tax rate to obtain
+the amount to be paid in taxes.
+#+NAME: problem_4
+#+BEGIN_SRC python :results output :exports none
+revenue = 1120000
+cost = 480000
+profit = revenue - cost
+print(round(profit, 2))
+tax_rate = 0.35
+tax_amount = profit * tax_rate
+print(round(tax_amount, 2))
+#+END_SRC
+#+RESULTS: problem_4
+: 640000
+: 224000.0
+By using the sales values given in the problem statement, it's easy to compute
+the profit: $640,000. It's also simple to check that 35% of this amount is
+$224,000. This is how much we have to pay in taxes.
+
+* Problem 5
+
+*Answer:* $163,333.33\\
+
+This subject isn't clearly explained in the lectures either. So I'll just do
+what seems to be the most reasonable thing. We already know that the annual
+depreciation amount is $466,666.67. From the previous problem, we also know that
+the tax rate is 35%. Then the tax savings from depreciation must correspond to
+35% of $466,666.67.
+#+NAME: problem_5
+#+BEGIN_SRC python :results output :exports none
+depreciation = 1400000 / 3
+tax_rate = 0.35
+savings = depreciation * tax_rate
+print(round(savings, 2))
+#+END_SRC
+#+RESULTS: problem_5
+: 163333.33
+It's easy to check that this amount is approximately $163,333.33.
+
+* Problem 6
+
+*Answer:* $579,333.33\\
+
+Let's begin by summarizing the information we have so far. From the other
+problems, we know the following:
+- the revenue is $1,120,000;
+- the cost is $480,000;
+- the amount to be paid in taxes is $224,000;
+- the tax savings from depreciation is $163,333.33.
+We can use these values to compute the operating cash flow (OCF) as follows:
+#+NAME: problem_6
+#+BEGIN_SRC python :results output :exports none
+revenue = 1120000
+cost = 480000
+profit = revenue - cost
+
+tax_rate = 0.35
+tax_amount = profit * tax_rate
+depreciation = 1400000 / 3
+savings = depreciation * tax_rate
+
+ocf = profit - tax_amount + savings
+print(round(ocf, 2))
+#+END_SRC
+#+RESULTS: problem_6
+: 579333.33
+\begin{equation}
+\mathrm{OCF}=1,120,000-480,000-224,000+163,333.33=579,333.33.
+\end{equation}
+
+* Problem 7
+
+*Answer:* $100 million\\
+
+In this problem, we shall express amounts in units of $1 million. Then we have
+the following:
+- XYZ has revenues of 500;
+- the cost of goods sold (COGS) is 300;
+- the depreciation amount is 100.
+As explained in the lectures, the EBIT is computed as follows:
+\begin{equation}
+\mathrm{EBIT}=\mathrm{Revenues}-\mathrm{COGS}-\mathrm{Depreciation}.
+\end{equation}
+Hence:
+\begin{equation}
+\mathrm{EBIT}=500-300-100=100.
+\end{equation}
+Therefore, the company's EBIT is $100 million.
+
+* Problem 8
+
+*Answer:* $70 million\\
+
+We already know the value of the EBIT. Then we can use this value, along with
+the tax rate, to compute how much the company has to pay in taxes. Since this
+rate is \( r=0.3 \), the tax amount \( T \) can be determined as follows:
+\begin{align}
+  \begin{split}
+    T&=\mathrm{EBIT}\times r\\
+    &=100\times 0.3\\
+    &=30.
+  \end{split}
+\end{align}
+This means the company needs to pay $30 million in taxes. Now, to obtain the
+NOPAT, we simply subtract \( T \) from the EBIT. After all, NOPAT represents the
+profit generated by the company after accounting for both operating expenses and
+taxes. Hence:
+\begin{align}
+  \begin{split}
+    \mathrm{NOPAT}&=\mathrm{EBIT}-T\\
+    &=100-30\\
+    &=70.
+  \end{split}
+\end{align}
+Therefore, the company's NOPAT is $70 million.
+
+* Problem 9
+
+*Answer:* $110 million\\
+
+We already know the amount corresponding to the NOPAT. Then, to compute the free
+cash flow (FCF), we need to take the NOPAT, and
+- add back the depreciation;
+- subtract the increase in working capital;
+- subtract the capital expenditure.
+The values for the relevant amounts are
+- NOPAT: 70;
+- Depreciation: 100;
+- Working capital increase: 50;
+- Capital expenditure: 10.
+Hence:
+\begin{equation}
+\mathrm{FCF}=70+100-50-10=110.
+\end{equation}
+Therefore, the company's free cash flow is $110 million.
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# End:
