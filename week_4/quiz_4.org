@@ -1,0 +1,315 @@
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+
+#+AUTHOR: Marcio Woitek
+#+TITLE: Week 4 Quiz
+#+LATEX_HEADER: \usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+#+LATEX_HEADER: \usepackage[american]{babel}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage[sc]{mathpazo}
+#+LATEX_HEADER: \linespread{1.05}
+#+LATEX_HEADER: \renewcommand{\labelitemi}{$\rhd$}
+#+LATEX_HEADER: \setlength\parindent{0pt}
+#+LATEX_HEADER: \setlist[itemize]{leftmargin=*}
+#+LATEX_HEADER: \setlist{nosep}
+#+OPTIONS: ':t
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: title:nil
+#+OPTIONS: toc:nil
+#+STARTUP: hideblocks
+
+#+BEGIN_SRC latex
+\thispagestyle{empty}
+\pagestyle{empty}
+#+END_SRC
+
+* Problem 1
+
+*Answer:* Stock A\\
+
+\( \beta \) is a measure of price fluctuation for a given stock. Then a small
+\( \beta \) indicates less fluctuations. This is precisely what a risk-averse
+investor wants. Therefore, I would recommend *stock A*.
+
+* Problem 2
+
+*Answer:* 1.0\\
+
+By definition, \( \beta \) is
+\begin{equation}
+\beta=\frac{\mathrm{Cov}(R_i,R_m)}{\mathrm{Var}(R_m)},
+\end{equation}
+where \( R_i \) denotes the rate of return for the stock of interest, and \( R_m \)
+denotes the rate of return for some stock market index.\\
+This question is about what happens when \( R_i=R_m \). By using the fact that
+\( \mathrm{Cov}(X,X)=\mathrm{Var}(X) \), we can write \( \beta \) as follows:
+\begin{align}
+  \begin{split}
+    \beta&=\frac{\mathrm{Cov}(R_i,R_m)}{\mathrm{Var}(R_m)}\\
+    &=\frac{\mathrm{Cov}(R_m,R_m)}{\mathrm{Var}(R_m)}\\
+    &=\frac{\mathrm{Var}(R_m)}{\mathrm{Var}(R_m)}\\
+    &=1.
+  \end{split}
+\end{align}
+Therefore, the value of \( \beta \) for the market is 1.
+
+* Problem 3
+
+*Answer:* Firm A
+
+* Problem 4
+
+*Answer:* 21.25%\\
+
+We begin by summarizing the information we were given:
+- The company's beta is \( \beta=1.5 \);
+- the risk-free rate is 7%, i.e., \( r_{\mathrm{RF}}=0.07 \);
+- the equity premium is 9.5%, i.e., \( \mathrm{EP}=0.095 \).
+As explained in the lectures, the cost of equity \( R_e \) can be computed as
+follows:
+\begin{equation}
+R_e=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}.
+\end{equation}
+By substituting the known values into the RHS of the above equation, we get
+#+NAME: problem_4
+#+BEGIN_SRC python :results output :exports none
+rfr = 7 / 100
+beta = 1.5
+ep = 9.5 / 100
+re = rfr + beta * ep
+print(round(re, 4))
+print(f"{round(100 * re, 2)}%")
+#+END_SRC
+#+RESULTS: problem_4
+: 0.2125
+: 21.25%
+\begin{align}
+  \begin{split}
+    R_e&=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}\\
+    &=0.07+1.5\cdot 0.095\\
+    &=0.2125.
+  \end{split}
+\end{align}
+Therefore, the expected return is 21.25%.
+
+* Problem 5
+
+*Answer:* 0.89\\
+
+To answer this question, we're going to use the equation for the cost of equity.
+By solving this equation for \( \beta \), we get
+\begin{align}
+  \begin{split}
+    R_e&=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}\\
+    R_e-r_{\mathrm{RF}}&=\beta\cdot\mathrm{EP}\\
+    \beta&=\frac{R_e-r_{\mathrm{RF}}}{\mathrm{EP}}
+  \end{split}
+\end{align}
+We were given all the values on the RHS of the last equation:
+- the expected return is 10.2%, i.e., \( R_e=0.102 \);
+- the risk-free rate is 4%, i.e., \( r_{\mathrm{RF}}=0.04 \);
+- the market risk premium is 7%, i.e., \( \mathrm{EP}=0.07 \).
+By substituting these values into our formula for \( \beta \), we obtain
+#+NAME: problem_5
+#+BEGIN_SRC python :results output :exports none
+re = 10.2 / 100
+rfr = 4 / 100
+ep = 7 / 100
+beta = (re - rfr) / ep
+print(round(beta, 2))
+#+END_SRC
+#+RESULTS: problem_5
+: 0.89
+\begin{align}
+  \begin{split}
+    \beta&=\frac{R_e-r_{\mathrm{RF}}}{\mathrm{EP}}\\
+    &=\frac{0.102-0.04}{0.07}\\
+    &=0.89.
+  \end{split}
+\end{align}
+Therefore, the value of beta for this stock is \( \beta=0.89 \).
+
+* Problem 6
+
+*Answer:* Yes\\
+
+We begin by summarizing the information we were given. If we denote the value of
+the assets by \( A \), then we have the following:
+- equity is \( E=0.5 A \);
+- debt is \( D=0.5 A \);
+- cost of equity is \( R_e=0.1 \);
+- cost of debt is \( R_d=0.05 \);
+- tax rate is \( t=0 \).
+We can use the values above to compute the WACC. As explained in the lectures,
+this quantity is given by
+\begin{equation}
+\mathrm{WACC}=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d.
+\end{equation}
+By substituting the known values into the RHS of this equation, we get
+\begin{align}
+  \begin{split}
+    \mathrm{WACC}&=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d\\
+    &=\frac{0.5 A}{0.5 A+0.5 A}R_e+\frac{0.5 A}{0.5 A+0.5 A}(1-0)R_d\\
+    &=0.5 R_e+0.5 R_d\\
+    &=0.5(R_e+R_d)\\
+    &=0.5(0.1+0.05)\\
+    &=0.5\cdot 0.15\\
+    &=0.075.
+  \end{split}
+\end{align}
+Then the cost of capital for this company is 7.5%.\\
+The next step is to use the WACC to compute the present value of $600 million in
+2 years. With the WACC as the discount rate, we get the following for this PV:
+#+NAME: problem_6
+#+BEGIN_SRC python :results output :exports none
+fv = 600
+r = 0.075
+t = 2
+pv = fv / (1 + r)**t
+print(round(pv, 2))
+#+END_SRC
+#+RESULTS: problem_6
+: 519.2
+\begin{equation}
+\mathrm{PV}=\frac{600}{(1+0.075)^2}=519.2.
+\end{equation}
+The present value of the income is $519.2 million. Since this amount is greater
+than the required investment, the company should take on the project.
+
+* Problem 7
+
+*Answer:* No\\
+
+In this case, the present value corresponding to the income is
+#+NAME: problem_7
+#+BEGIN_SRC python :results output :exports none
+fv = 600
+r = 0.075
+t = 3
+pv = fv / (1 + r)**t
+print(round(pv, 2))
+#+END_SRC
+#+RESULTS: problem_7
+: 482.98
+\begin{equation}
+\mathrm{PV}=\frac{600}{(1+0.075)^3}=482.98.
+\end{equation}
+The PV of the income is $482.98 million. Since this amount is less than the
+required investment, the company should NOT take on the project.
+
+* Problem 8
+
+*Answer:* 33.3%\\
+
+To solve this problem, we're going to use the accounting equation:
+\begin{equation}
+A=D+E,
+\end{equation}
+where \( A \) denotes the amount in assets, \( D \) denotes the debt amount, and
+\( E \) denotes the equity amount. We know that \( D=0.25 A \). Hence:
+\begin{align}
+  \begin{split}
+    A&=D+E\\
+    A&=0.25 A+E\\
+    A-0.25 A&=E\\
+    E&=0.75 A
+  \end{split}
+\end{align}
+The company's debt-equity ratio can now be computed as follows:
+\begin{align}
+  \begin{split}
+    \frac{D}{E}&=\frac{0.25 A}{0.75 A}\\
+    &=\frac{0.25}{0.75}\\
+    &=\frac{\frac{1}{4}}{\frac{3}{4}}\\
+    &=\frac{1}{3}
+  \end{split}
+\end{align}
+#+NAME: problem_8
+#+BEGIN_SRC python :results output :exports none
+print(f"{round(100 * 1 / 3, 1)}%")
+#+END_SRC
+#+RESULTS: problem_8
+: 33.3%
+As a percentage, this ratio is approximately 33.3%.
+
+* Problem 9
+
+*Answer:* 66.6%\\
+
+First, we use the debt-equity ratio to obtain an expression for \( D \):
+\begin{equation}
+\frac{D}{E}=0.5\qquad\Rightarrow\qquad D=0.5 E.
+\end{equation}
+Next, we substitute this expression into the accounting equation:
+\begin{align}
+  \begin{split}
+    A&=D+E\\
+    A&=0.5 E+E\\
+    A&=1.5 E\\
+    A&=\frac{3}{2}E\\
+    E&=\frac{2}{3}A
+  \end{split}
+\end{align}
+#+NAME: problem_9
+#+BEGIN_SRC python :results output :exports none
+print(f"{round(100 * 2 / 3, 1)}%")
+#+END_SRC
+#+RESULTS: problem_9
+: 66.7%
+Therefore, two thirds of the company's assets are financed by equity. As a
+percentage, this fraction is approximately 66.6%.
+
+* Problem 10
+
+*Answer:* 97%\\
+
+We begin by re-writing the definition of WACC. The goal is to make the
+debt-equity ratio appear in that equation, and then solve for this ratio. This
+can be done as follows:
+\begin{align}
+  \begin{split}
+    \mathrm{WACC}&=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d\\
+    (E+D)\mathrm{WACC}&=E R_e+D(1-t)R_d\\
+    \frac{(E+D)\mathrm{WACC}}{E}&=\frac{E R_e+D(1-t)R_d}{E}\\
+    \left(1+\frac{D}{E}\right)\mathrm{WACC}&=R_e+\frac{D}{E}(1-t)R_d\\
+    \mathrm{WACC}+\frac{D}{E}\mathrm{WACC}&=R_e+\frac{D}{E}(1-t)R_d\\
+    \frac{D}{E}\left[\mathrm{WACC}-(1-t)R_d\right]&=R_e-\mathrm{WACC}\\
+    \frac{D}{E}&=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-(1-t)R_d}\\
+    \frac{D}{E}&=\frac{\mathrm{WACC}-R_e}{(1-t)R_d-\mathrm{WACC}}
+  \end{split}
+\end{align}
+Now it's just a matter of using the values given in the problem statement:
+- \( \mathrm{WACC}=0.098 \);
+- \( R_e=0.13 \);
+- \( R_d=0.065 \).
+The value of the tax rate wasn't specified. So we assume that \( t=0 \). By
+substituting the above values into our first equation for the debt-equity ratio,
+we get
+#+NAME: problem_10
+#+BEGIN_SRC python :results output :exports none
+wacc = 0.098
+re = 0.13
+rd = 0.065
+de_ratio = (re - wacc) / (wacc - rd)
+print(round(de_ratio, 2))
+print(f"{round(100 * de_ratio)}%")
+#+END_SRC
+#+RESULTS: problem_10
+: 0.97
+: 97%
+\begin{align}
+  \begin{split}
+    \frac{D}{E}&=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-(1-t)R_d}\\
+    &=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-R_d}\\
+    &=\frac{0.13-0.098}{0.098-0.065}\\
+    &=0.97.
+  \end{split}
+\end{align}
+Therefore, the debt-equity ratio for this company is 97%.
+
+# Local Variables:
+# ispell-alternate-dictionary: "american"
+# End:

@@ -1,0 +1,264 @@
+% Created 2024-07-09 Tue 08:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\date{}
+\title{Week 4 Quiz}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Week 4 Quiz},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:org79c82ef}
+
+\textbf{Answer:} Stock A\\
+
+\(\beta\) is a measure of price fluctuation for a given stock. Then a small
+\(\beta\) indicates less fluctuations. This is precisely what a risk-averse
+investor wants. Therefore, I would recommend \textbf{stock A}.
+\section*{Problem 2}
+\label{sec:org82376db}
+
+\textbf{Answer:} 1.0\\
+
+By definition, \(\beta\) is
+\begin{equation}
+\beta=\frac{\mathrm{Cov}(R_i,R_m)}{\mathrm{Var}(R_m)},
+\end{equation}
+where \(R_i\) denotes the rate of return for the stock of interest, and \(R_m\)
+denotes the rate of return for some stock market index.\\
+This question is about what happens when \(R_i=R_m\). By using the fact that
+\(\mathrm{Cov}(X,X)=\mathrm{Var}(X)\), we can write \(\beta\) as follows:
+\begin{align}
+  \begin{split}
+    \beta&=\frac{\mathrm{Cov}(R_i,R_m)}{\mathrm{Var}(R_m)}\\
+    &=\frac{\mathrm{Cov}(R_m,R_m)}{\mathrm{Var}(R_m)}\\
+    &=\frac{\mathrm{Var}(R_m)}{\mathrm{Var}(R_m)}\\
+    &=1.
+  \end{split}
+\end{align}
+Therefore, the value of \(\beta\) for the market is 1.
+\section*{Problem 3}
+\label{sec:org852ff12}
+
+\textbf{Answer:} Firm A
+\section*{Problem 4}
+\label{sec:org4af14bb}
+
+\textbf{Answer:} 21.25\%\\
+
+We begin by summarizing the information we were given:
+\begin{itemize}
+\item The company's beta is \(\beta=1.5\);
+\item the risk-free rate is 7\%, i.e., \(r_{\mathrm{RF}}=0.07\);
+\item the equity premium is 9.5\%, i.e., \(\mathrm{EP}=0.095\).
+\end{itemize}
+As explained in the lectures, the cost of equity \(R_e\) can be computed as
+follows:
+\begin{equation}
+R_e=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}.
+\end{equation}
+By substituting the known values into the RHS of the above equation, we get
+\begin{align}
+  \begin{split}
+    R_e&=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}\\
+    &=0.07+1.5\cdot 0.095\\
+    &=0.2125.
+  \end{split}
+\end{align}
+Therefore, the expected return is 21.25\%.
+\section*{Problem 5}
+\label{sec:orgbc74e54}
+
+\textbf{Answer:} 0.89\\
+
+To answer this question, we're going to use the equation for the cost of equity.
+By solving this equation for \(\beta\), we get
+\begin{align}
+  \begin{split}
+    R_e&=r_{\mathrm{RF}}+\beta\cdot\mathrm{EP}\\
+    R_e-r_{\mathrm{RF}}&=\beta\cdot\mathrm{EP}\\
+    \beta&=\frac{R_e-r_{\mathrm{RF}}}{\mathrm{EP}}
+  \end{split}
+\end{align}
+We were given all the values on the RHS of the last equation:
+\begin{itemize}
+\item the expected return is 10.2\%, i.e., \(R_e=0.102\);
+\item the risk-free rate is 4\%, i.e., \(r_{\mathrm{RF}}=0.04\);
+\item the market risk premium is 7\%, i.e., \(\mathrm{EP}=0.07\).
+\end{itemize}
+By substituting these values into our formula for \(\beta\), we obtain
+\begin{align}
+  \begin{split}
+    \beta&=\frac{R_e-r_{\mathrm{RF}}}{\mathrm{EP}}\\
+    &=\frac{0.102-0.04}{0.07}\\
+    &=0.89.
+  \end{split}
+\end{align}
+Therefore, the value of beta for this stock is \(\beta=0.89\).
+\section*{Problem 6}
+\label{sec:org43c237b}
+
+\textbf{Answer:} Yes\\
+
+We begin by summarizing the information we were given. If we denote the value of
+the assets by \(A\), then we have the following:
+\begin{itemize}
+\item equity is \(E=0.5 A\);
+\item debt is \(D=0.5 A\);
+\item cost of equity is \(R_e=0.1\);
+\item cost of debt is \(R_d=0.05\);
+\item tax rate is \(t=0\).
+\end{itemize}
+We can use the values above to compute the WACC. As explained in the lectures,
+this quantity is given by
+\begin{equation}
+\mathrm{WACC}=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d.
+\end{equation}
+By substituting the known values into the RHS of this equation, we get
+\begin{align}
+  \begin{split}
+    \mathrm{WACC}&=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d\\
+    &=\frac{0.5 A}{0.5 A+0.5 A}R_e+\frac{0.5 A}{0.5 A+0.5 A}(1-0)R_d\\
+    &=0.5 R_e+0.5 R_d\\
+    &=0.5(R_e+R_d)\\
+    &=0.5(0.1+0.05)\\
+    &=0.5\cdot 0.15\\
+    &=0.075.
+  \end{split}
+\end{align}
+Then the cost of capital for this company is 7.5\%.\\
+The next step is to use the WACC to compute the present value of \$600 million in
+2 years. With the WACC as the discount rate, we get the following for this PV:
+\begin{equation}
+\mathrm{PV}=\frac{600}{(1+0.075)^2}=519.2.
+\end{equation}
+The present value of the income is \$519.2 million. Since this amount is greater
+than the required investment, the company should take on the project.
+\section*{Problem 7}
+\label{sec:org349b788}
+
+\textbf{Answer:} No\\
+
+In this case, the present value corresponding to the income is
+\begin{equation}
+\mathrm{PV}=\frac{600}{(1+0.075)^3}=482.98.
+\end{equation}
+The PV of the income is \$482.98 million. Since this amount is less than the
+required investment, the company should NOT take on the project.
+\section*{Problem 8}
+\label{sec:org00907eb}
+
+\textbf{Answer:} 33.3\%\\
+
+To solve this problem, we're going to use the accounting equation:
+\begin{equation}
+A=D+E,
+\end{equation}
+where \(A\) denotes the amount in assets, \(D\) denotes the debt amount, and
+\(E\) denotes the equity amount. We know that \(D=0.25 A\). Hence:
+\begin{align}
+  \begin{split}
+    A&=D+E\\
+    A&=0.25 A+E\\
+    A-0.25 A&=E\\
+    E&=0.75 A
+  \end{split}
+\end{align}
+The company's debt-equity ratio can now be computed as follows:
+\begin{align}
+  \begin{split}
+    \frac{D}{E}&=\frac{0.25 A}{0.75 A}\\
+    &=\frac{0.25}{0.75}\\
+    &=\frac{\frac{1}{4}}{\frac{3}{4}}\\
+    &=\frac{1}{3}
+  \end{split}
+\end{align}
+As a percentage, this ratio is approximately 33.3\%.
+\section*{Problem 9}
+\label{sec:org0be6fbf}
+
+\textbf{Answer:} 66.6\%\\
+
+First, we use the debt-equity ratio to obtain an expression for \(D\):
+\begin{equation}
+\frac{D}{E}=0.5\qquad\Rightarrow\qquad D=0.5 E.
+\end{equation}
+Next, we substitute this expression into the accounting equation:
+\begin{align}
+  \begin{split}
+    A&=D+E\\
+    A&=0.5 E+E\\
+    A&=1.5 E\\
+    A&=\frac{3}{2}E\\
+    E&=\frac{2}{3}A
+  \end{split}
+\end{align}
+Therefore, two thirds of the company's assets are financed by equity. As a
+percentage, this fraction is approximately 66.6\%.
+\section*{Problem 10}
+\label{sec:orgbb980ff}
+
+\textbf{Answer:} 97\%\\
+
+We begin by re-writing the definition of WACC. The goal is to make the
+debt-equity ratio appear in that equation, and then solve for this ratio. This
+can be done as follows:
+\begin{align}
+  \begin{split}
+    \mathrm{WACC}&=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d\\
+    (E+D)\mathrm{WACC}&=E R_e+D(1-t)R_d\\
+    \frac{(E+D)\mathrm{WACC}}{E}&=\frac{E R_e+D(1-t)R_d}{E}\\
+    \left(1+\frac{D}{E}\right)\mathrm{WACC}&=R_e+\frac{D}{E}(1-t)R_d\\
+    \mathrm{WACC}+\frac{D}{E}\mathrm{WACC}&=R_e+\frac{D}{E}(1-t)R_d\\
+    \frac{D}{E}\left[\mathrm{WACC}-(1-t)R_d\right]&=R_e-\mathrm{WACC}\\
+    \frac{D}{E}&=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-(1-t)R_d}\\
+    \frac{D}{E}&=\frac{\mathrm{WACC}-R_e}{(1-t)R_d-\mathrm{WACC}}
+  \end{split}
+\end{align}
+Now it's just a matter of using the values given in the problem statement:
+\begin{itemize}
+\item \(\mathrm{WACC}=0.098\);
+\item \(R_e=0.13\);
+\item \(R_d=0.065\).
+\end{itemize}
+The value of the tax rate wasn't specified. So we assume that \(t=0\). By
+substituting the above values into our first equation for the debt-equity ratio,
+we get
+\begin{align}
+  \begin{split}
+    \frac{D}{E}&=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-(1-t)R_d}\\
+    &=\frac{R_e-\mathrm{WACC}}{\mathrm{WACC}-R_d}\\
+    &=\frac{0.13-0.098}{0.098-0.065}\\
+    &=0.97.
+  \end{split}
+\end{align}
+Therefore, the debt-equity ratio for this company is 97\%.
+\end{document}
