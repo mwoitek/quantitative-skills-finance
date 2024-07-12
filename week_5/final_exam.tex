@@ -1,0 +1,241 @@
+% Created 2024-07-12 Fri 03:23
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage[american, english]{babel}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\renewcommand{\labelitemi}{$\rhd$}
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist{nosep}
+\date{}
+\title{Final Exam}
+\hypersetup{
+ pdfauthor={Marcio Woitek},
+ pdftitle={Final Exam},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\section*{Problem 1}
+\label{sec:orgf7c355e}
+
+\textbf{Answer:} Fall\\
+
+Denote the interest rate by \(r\). To compute the present value, we need to
+determine the ``discount factor''
+\begin{equation*}
+\frac{1}{(1+r)^t},
+\end{equation*}
+where, for this problem, \(t=5\) years. If the interest rate increases, then
+the above factor decreases. As a result, the present value also decreases.
+\section*{Problem 2}
+\label{sec:orge777e81}
+
+\textbf{Answer:} Row A\\
+
+To decide on the best option, we need to compute the present value for each cash
+flow. To do so, we have to discount every amount to determine its present value.
+Recall that the discounted amount decreases as time goes by. Then it's better to
+receive the largest amounts as soon as possible. This suggests that the best
+option corresponds to the cash-inflow in \textbf{row A}.
+\section*{Problem 3}
+\label{sec:org06273c0}
+
+\textbf{Answer:} Decrease it\\
+
+The reasoning behind this answer was explained in the solution to Problem 1. The
+only difference is that in this case we want the present value to increase. In
+other words, in comparison with the first problem, now we have the opposite
+situation. Therefore, for the PV to increase, we need the discount rate to
+decrease.
+\section*{Problem 4}
+\label{sec:orga0517f9}
+
+\textbf{Answer:} Cash flow
+\section*{Problem 5}
+\label{sec:org1676374}
+
+\textbf{Answer:} Cash creation is a better measure of firm value
+\section*{Problem 6}
+\label{sec:org90de6e5}
+
+\textbf{Answer:} Decreasing FCF by any increase in the level of working capital
+\section*{Problem 7}
+\label{sec:org1dcab9b}
+
+\textbf{Answer:} Depreciation is a non-cash expense
+\section*{Problem 8}
+\label{sec:orgd28051c}
+
+\textbf{Answer:} The amount of value left in the project at the end of the forecast
+\section*{Problem 9}
+\label{sec:org28af67c}
+
+\textbf{Answer:} All the above
+\section*{Problem 10}
+\label{sec:org0d4a56a}
+
+\textbf{Answer:} 20\%\\
+
+The original price can be seen as a present value: \(\mathrm{PV}=26\). Then
+the selling price is the corresponding future value: \(\mathrm{FV}=45\). So,
+to answer this question, we'll use the formula
+\begin{equation}
+\mathrm{FV}=\mathrm{PV}(1+r)^t,
+\end{equation}
+where \(r\) represents the rate of return, and \(t=3\) years. Since we need
+to determine \(r\), let us first solve the above equation for this variable:
+\begin{align}
+  \begin{split}
+    \mathrm{FV}&=\mathrm{PV}(1+r)^t\\
+    \frac{\mathrm{FV}}{\mathrm{PV}}&=(1+r)^t\\
+    \left(\frac{\mathrm{FV}}{\mathrm{PV}}\right)^{1/t}&=1+r\\
+    r&=\left(\frac{\mathrm{FV}}{\mathrm{PV}}\right)^{1/t}-1
+  \end{split}
+\end{align}
+By substituting the known values into the RHS of this equation, we get
+\begin{align}
+  \begin{split}
+    r&=\left(\frac{\mathrm{FV}}{\mathrm{PV}}\right)^{1/t}-1\\
+    &=\left(\frac{45}{26}\right)^{1/3}-1\\
+    &\approx 0.2.
+  \end{split}
+\end{align}
+Therefore, the annual rate of return is 20\%.
+\section*{Problem 11}
+\label{sec:org9837608}
+
+\textbf{Answer:} Stock market dividends
+\section*{Problem 12}
+\label{sec:org1e66b55}
+
+\textbf{Answer:} \$6,843\\
+
+To answer this question, we need to compute a future value. We begin by
+summarizing the information we were given:
+\begin{itemize}
+\item the present value is \(\mathrm{PV}=5000\);
+\item the interest rate is \(r=0.04\);
+\item the number of time periods is \(t=8\) years.
+\end{itemize}
+Recall that the future value can be written as
+\begin{equation}
+\mathrm{FV}=\mathrm{PV}(1+r)^t.
+\end{equation}
+By substituting all the known values into the above equation, we get
+\begin{equation}
+\mathrm{FV}=5000(1+0.04)^8\approx 6843.
+\end{equation}
+Therefore, the account balance will be approximately \$6,843.
+\section*{Problem 13}
+\label{sec:org61e75eb}
+
+\textbf{Answer:} All of the above
+\section*{Problem 14}
+\label{sec:org9c946ab}
+
+\textbf{Answer:} All of the above
+\section*{Problem 15}
+\label{sec:org9dc73f0}
+
+\textbf{Answer:} 7.71\%\\
+
+In this case, it's possible to show that the \(\mathrm{IRR}\) satisfies the
+following quartic equation:
+\begin{equation}
+5\mathrm{IRR}^4+18.5\mathrm{IRR}^3+24\mathrm{IRR}^2+11\mathrm{IRR}-1=0.
+\end{equation}
+This equation has two real solutions. However, only one of them is positive.
+This root is approximately 0.0771. Therefore, as a percentage, the
+\(\mathrm{IRR}\) is approximately 7.71\%.
+\section*{Problem 16}
+\label{sec:orgc751923}
+
+\textbf{Answer:} \(\mathrm{NPV}=\$-245\); reject the project\\
+
+I wrote a Python function to compute the net present value. To solve this
+problem, I simply used this function. For this reason, I'm not presenting a
+detailed explanation of my solution. However, the result for the NPV is
+\(-245.2\). Since this value is negative, the firm should reject this project.
+\section*{Problem 17}
+\label{sec:org92d226c}
+
+\textbf{Answer:} NPV
+\section*{Problem 18}
+\label{sec:org84b75c6}
+
+\textbf{Answer:} The payback period does not incorporate the time value of money
+\section*{Problem 19}
+\label{sec:org98e27c6}
+
+\textbf{Answer:} All the above
+\section*{Problem 20}
+\label{sec:org9e4ee16}
+
+\textbf{Answer:} The minimum rate firms should earn on the equity-financed part of an
+investment
+\section*{Problem 21}
+\label{sec:org3abdac1}
+
+\textbf{Answer:} Based on the market beta and the equity risk premium
+\section*{Problem 22}
+\label{sec:orge9890b0}
+
+\textbf{Answer:} More risk that cannot be avoided
+\section*{Problem 23}
+\label{sec:orgba06229}
+
+\textbf{Answer:} The earning per share for the next time period.
+\section*{Problem 24}
+\label{sec:org92638c6}
+
+\textbf{Answer:} There is more systematic risk involved for the common stock
+\section*{Problem 25}
+\label{sec:orga871ea1}
+
+\textbf{Answer:} 9.12\%\\
+
+We begin by summarizing the information we were given. Denote by \(A\) the
+amount in assets. Then we have the following:
+\begin{itemize}
+\item the debt is \(D=0.6 A\);
+\item the equity is \(E=0.4 A\);
+\item the cost of debt is \(R_d=0.08\);
+\item the cost of equity is \(R_e=0.15\);
+\item the tax rate is \(t=0.35\).
+\end{itemize}
+Next, recall that the WACC is given by
+\begin{equation}
+\mathrm{WACC}=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d.
+\end{equation}
+We know all the values on the RHS of this equation. By substituting these values
+into this formula, we get
+\begin{align}
+  \begin{split}
+    \mathrm{WACC}&=\frac{E}{E+D}R_e+\frac{D}{E+D}(1-t)R_d\\
+    &=\frac{0.4 A}{0.4 A+0.6 A}\cdot 0.15+\frac{0.6 A}{0.4 A+0.6 A}\cdot(1-0.35)\cdot 0.08\\
+    &=0.4\cdot 0.15+0.6\cdot 0.65\cdot 0.08\\
+    &=0.0912.
+  \end{split}
+\end{align}
+Therefore, the WACC for this company is 9.12\%.
+\end{document}
